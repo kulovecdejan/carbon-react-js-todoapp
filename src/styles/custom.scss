@@ -1,1 +1,114 @@
-@use '@carbon/react';
+@use './theme';
+
+body {
+  margin-top: 5.5rem;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  animation: bg-scrolling-reverse 3.92s infinite linear;
+}
+
+@keyframes bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
+}
+
+.todo-list-wrapper {
+  border: 2px solid theme.$color-border;
+  border-radius: 100px;
+  background: theme.$color-background;
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+  overflow: hidden;
+}
+
+.todo-list-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-list-body {
+  background: theme.$color-background;
+}
+
+.break-line::after {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 1px;
+  background-color: theme.$color-border;
+  margin: 10px auto;
+}
+
+.logo-img {
+  margin: 25px auto;
+}
+
+.add-task-btn {
+  margin: auto;
+  background: theme.$color-logo-button;
+  color: theme.$color-text-default;
+  font-weight: 700;
+}
+
+.filter-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-filter {
+  padding: 10px;
+  text-align: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: theme.$color-filter-background;
+}
+
+.active {
+  font-weight: bold;
+  border-radius: 25px;
+  &.yellow { background: theme.$color-filter-active-yellow; }
+  &.green { background: theme.$color-filter-active-green; }
+  &.red { background: theme.$color-filter-active-red; }
+}
+
+.text-filter {
+  width: 300px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+  width: 100%;
+}
+
+li {
+  margin: 0 40px;
+  display: block;
+  &.high-importance { background-color: theme.$color-high-importance; }
+  &.medium-importance { background-color: theme.$color-medium-importance; }
+  &.low-importance { background-color: theme.$color-low-importance; }
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-title {
+  font-weight: 700;
+  color: theme.$color-text-default;
+}
+
+.task-description {
+  font-weight: 500;
+  color: theme.$color-text-muted;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: theme.$color-text-muted;
+}
